@@ -31,42 +31,70 @@ The DVD rental database models the business processes of a DVD rental store. It 
 ### Query 1: Customers Spending More than 190.00
 Find the customer IDs who spent a total amount greater than 190.00:
 ```sql
-![image](https://github.com/user-attachments/assets/05a9e369-29d3-4f88-9e64-cbcc32e25c1d)
+SELECT customer_id
+FROM payment
+GROUP BY customer_id
+HAVING SUM(amount) > 190.00;
 
 ```
 
 ### Query 2: Customers Spending Less than 3.00 on Average
 Find customers' full names who spent an average amount less than 3.00:
 ```sql
-![image](https://github.com/user-attachments/assets/f19e9b81-c9c3-4b09-a6d4-8f7dbfaf8de6)
+SELECT c.first_name, c.last_name
+FROM payment AS p
+JOIN customer AS c
+ON p.customer_id = c.customer_id
+GROUP BY p.customer_id, c.first_name, c.last_name
+HAVING AVG(p.amount) < 3.00;
 
 ```
 
 ### Query 3: Customers with Total Payments
 Find customer IDs whose total amount is more than 200.00 or less than 40.00:
 ```sql
-![image](https://github.com/user-attachments/assets/96f893bf-39b7-4cea-bf88-3964b5cc9eaf)
+SELECT customer_id
+FROM payment
+GROUP BY customer_id
+HAVING SUM(amount) > 200.00 OR SUM(amount) < 40.00;
 
 ```
 
 ### Query 4: Customers with Conditional Payment Records
 Find customers' IDs who spent more than 90.00 but have fewer than 20 payment records:
 ```sql
-![image](https://github.com/user-attachments/assets/15bbc9cf-d546-4994-a2a4-be423e7414e3)
+SELECT customer_id
+FROM payment
+GROUP BY customer_id
+HAVING SUM(amount) > 90.00 AND COUNT(amount) < 20;
 
 ```
 
 ### Query 5: Sum of Payments by Customer and Staff
 Using the payment table, return the sum of amounts grouped by customer_id and staff_id:
 ```sql
-![image](https://github.com/user-attachments/assets/40c43bd4-1fbe-47ca-b079-ba10413f50da)
+SELECT customer_id, staff_id, SUM(amount)
+FROM payment
+GROUP BY GOUPING SETS ((customer_id), (staff_id), (customer_id, staff_id), ());
 
 ```
 
 ### Query 6: Top 10 Customers by Total Payments
 Find the first 10 customer IDs whose total payments exceed the average total payment:
 ```sql
-![image](https://github.com/user-attachments/assets/ff9a083f-9216-473e-b2e1-246e19738867)
+SELECT customer_id
+FROM payment
+GROUP BY customer_id
+HAVING SUM(amount) > (
+    SELECT AVG(total_amount)
+    FROM (
+        SELECT SUM(amount) AS total_amount
+        FROM payment
+        GROUP BY customer_id
+    )
+)
+ORDER BY SUM(amount) DESC
+LIMIT 10;
 
 ```
 
@@ -77,7 +105,18 @@ Find the first 10 customer IDs whose total payments exceed the average total pay
 ### Query 1: Films with Maximum Length per Category
 For each category, find films with lengths greater than or equal to the maximum length of that category:
 ```sql
-![image](https://github.com/user-attachments/assets/c1fd0b78-c293-43cc-866d-9ee8677bc3c8)
+SELECT title, length
+FROM film
+WHERE length >= (
+    SELECT MIN(max_length)
+    FROM (
+        SELECT MAX(length) AS max_length
+        FROM film
+        INNER JOIN film_category USING(film_id)
+        GROUP BY category_id
+    )
+)
+LIMIT 10;
 
 ```
 
