@@ -1,6 +1,6 @@
 # SQL Exercises - DVD Rental Database
 
-After taking the Database course, I decided to apply some of the concepts I learned, particularly on the practical side. This exercise showcases my current familiarity with PostgreSQL query formulation. While not a full-fledged project, it demonstrates basic proficiency in data loading and formulating simple SQL queries.
+After taking the Database course, I decided to apply some of the concepts I learned, particularly on the practical side. This exercise showcases my current familiarity with PostgreSQL query formulation. While this is not a full-fledged project, it demonstrates basic proficiency in data loading and formulating simple SQL queries.
 
 ## Dataset Information
 
