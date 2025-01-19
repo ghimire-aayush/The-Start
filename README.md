@@ -8,7 +8,7 @@ This repository documents my progress in learning Data Science and Machine Learn
 ## Timeline and Progress
 
 ### **18.12.24 – Laying Down the Overall Plan**
-After finishing my exams, I set out a structured plan to:
+After finishing my exams for the semester, I set out a structured plan to:
 1. Learn Python libraries for data analysis.
 2. Revise SQL language and complete a related project.
 3. Understand basic machine learning concepts and implement small projects.
