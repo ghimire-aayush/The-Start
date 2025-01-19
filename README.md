@@ -1,4 +1,4 @@
-# My Data Science and Machine Learning Journey 🌟
+# My Data Science and Machine Learning Journey, So far...
 
 ## Overview
 This repository documents my progress in learning Data Science and Machine Learning during the winter holidays. My primary goal was to build a solid foundation in Python libraries for data analysis, SQL, and basic machine learning concepts. Below, I outline my journey, achievements, and future plans.
@@ -99,8 +99,11 @@ This project encompasses:
 1. **Interactive Data Visualizations**: Learn Python libraries for dynamic visualizations.
 2. **Geospatial Data Analysis**: Build on my newfound interest in geographical visualizations.
 3. **Machine Learning**: Continue exploring advanced algorithms and deep learning concepts.
+4. **Deep Learning**: Learning to use PyTorch libary for deep learning, and familiarizing myself with diffent kinds of neural networks
 
-**Deadline**: End of February 2025.
+ And Have a project out for each of this to showcase my learning
+
+**Deadline**: End of April 2025.
 
 ---
 
