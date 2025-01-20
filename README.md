@@ -60,7 +60,7 @@ This project encompasses:
 - Explored palaeontology data curated in Helsinki.
 - Developed a keen interest in geospatial data analysis.
 
-🔗 [View the project](Data Analysis Project)
+🔗 (Data Analysis Project)(https://github.com/ghimire-aayush/The-Start)
 
 ---
 
