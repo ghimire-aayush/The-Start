@@ -110,6 +110,7 @@ This project encompasses:
 ## Repository Contents
 - 📂 `Data_Analysis`: Python projects and notebooks.
 - 📂 `SQL`: SQL queries and solutions.
+- 📂 `ML`: Machine Learning exercises and projects.
 
 🔗 [Visit the Repository](https://github.com/ghimire-aayush/The-Start)
 
